@@ -7,7 +7,6 @@ const ruleCreator = ESLintUtils.RuleCreator(
 
 const REPLACEMENTS: Record<string, string> = {
     document: "activeDocument",
-    window: "activeWindow",
 };
 
 const WINDOW_TIMER_METHODS = new Set([
@@ -24,7 +23,7 @@ export default ruleCreator({
         type: "suggestion" as const,
         docs: {
             description:
-                "Prefer `activeDocument` and `activeWindow` over `document` and `window` for popout window compatibility.",
+                "Prefer `activeDocument` over `document` for popout window compatibility.",
         },
         schema: [],
         fixable: undefined,
