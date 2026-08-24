@@ -11,5 +11,9 @@ declare module 'eslint-plugin-obsidianmd' {
     };
     export const rules: {
         [key: string]: Rule.RuleModule;
-    }
+    };
+    export const ruleConfigs: {
+        recommended: Linter.RulesRecord;
+        recommendedTypeChecked: Linter.RulesRecord;
+    };
 }

@@ -120,8 +120,12 @@ const plugin = {
     configs: {
         recommended: [] as Config[],
         recommendedWithLocalesEn: [] as Config[]
+    },
+    ruleConfigs: {
+        recommended: {} as RulesConfig,
+        recommendedTypeChecked: {} as RulesConfig,
     }
-} satisfies ESLint.Plugin;
+};
 
 // Rules that require type information (call getParserServices).
 // These must only run on files linted with type information (the TS block,
@@ -392,6 +396,13 @@ const recommendedWithLocalesEn: Config[] = defineConfig([
 plugin.configs = {
     recommended: flatRecommendedConfig,
     recommendedWithLocalesEn
+};
+
+plugin.ruleConfigs = {
+    /** Base obsidianmd rules that do not require type information. Safe to use with any parser setup. */
+    recommended: recommendedPluginRulesConfigBase,
+    /** Obsidianmd rules that require typescript-eslint type-aware linting (recommendedTypeChecked or stricter). */
+    recommendedTypeChecked: recommendedPluginRulesConfigTypeChecked,
 };
 
 export default plugin;
