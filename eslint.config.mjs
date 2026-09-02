@@ -31,10 +31,14 @@ export default [
         files: ["tests/**/*.ts"],
     },
     // This repo is the plugin, not an Obsidian plugin. Its manifest.json is a
-    // fixture for the sample plugin, so the rule is correct to fire here and the
-    // findings are unactionable.
+    // fixture for the sample plugin and its LICENSE is Dynalist's own, so both
+    // rules are correct to fire here and both findings are unactionable.
     {
         files: ["manifest.json"],
         rules: { "obsidianmd/validate-manifest": "off" },
+    },
+    {
+        files: ["LICENSE"],
+        rules: { "obsidianmd/validate-license": "off" },
     },
 ];
