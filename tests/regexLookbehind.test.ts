@@ -23,5 +23,11 @@ ruleTester.run("regex-lookbehind", regexLookbehindRule, {
             options: [{ isDesktopOnly: false }],
             errors: [{ messageId: "lookbehind" }],
         },
+        {
+            name: "negative lookbehind in non-desktop mode is forbidden",
+            code: "const re = /(?<!a)b/;",
+            options: [{ isDesktopOnly: false }],
+            errors: [{ messageId: "lookbehind" }],
+        },
     ],
 });

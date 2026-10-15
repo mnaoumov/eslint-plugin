@@ -41,7 +41,7 @@ export default ruleCreator<Options, "lookbehind">({
                     node.regex &&
                     typeof node.regex.pattern === "string"
                 ) {
-                    if (/\(\?<=|\(\?<!\)/.test(node.regex.pattern)) {
+                    if (/\(\?<[=!]/.test(node.regex.pattern)) {
                         if (!isDesktopOnly) {
                             context.report({
                                 node,
